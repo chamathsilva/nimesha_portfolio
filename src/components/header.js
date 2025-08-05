@@ -12,6 +12,11 @@ function Header() {
             setIsScrolled(window.scrollY > 50);
         };
 
+        // Check for saved theme preference or default to 'light'
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -20,6 +25,7 @@ function Header() {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
     };
 
     return (
@@ -31,19 +37,24 @@ function Header() {
                         <span className="logo-text">NK</span>
                     </div>
                     <div className="header-actions">
-                        <button 
+                        <div 
                             className="theme-toggle"
                             onClick={toggleTheme}
                             aria-label="Toggle theme"
                         >
-                            {theme === 'light' ? '🌙' : '☀️'}
-                        </button>
+                            <span className={`toggle-icon sun-icon ${theme === 'light' ? 'active' : ''}`}>☀️</span>
+                            <div className={`toggle-slider ${theme === 'dark' ? 'dark' : ''}`}>
+                                {theme === 'light' ? '☀️' : '🌙'}
+                            </div>
+                            <span className={`toggle-icon moon-icon ${theme === 'dark' ? 'active' : ''}`}>🌙</span>
+                        </div>
                         <div 
-                            id="hamburger" 
                             className={`hamburger ${isMenuActive ? "is-active" : ""}`} 
                             onClick={() => setIsMenuActive(!isMenuActive)}
                         >
-                            <div className="hamburger-inner"></div>
+                            <div className="hamburger-line"></div>
+                            <div className="hamburger-line"></div>
+                            <div className="hamburger-line"></div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +74,12 @@ function Header() {
                             onClick={toggleTheme}
                             aria-label="Toggle theme"
                         >
-                            {theme === 'light' ? '🌙' : '☀️'}
+                            <span className="theme-icon">
+                                {theme === 'light' ? '🌙' : '☀️'}
+                            </span>
+                            <span className="theme-text">
+                                {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                            </span>
                         </button>
                     </div>
                 </div>
