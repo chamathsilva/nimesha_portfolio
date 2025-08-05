@@ -10,6 +10,8 @@ function Home() {
 
     useEffect(() => {
         setIsVisible(true);
+        // Ensure page starts at top
+        window.scrollTo(0, 0);
     }, []);
 
     const scrollToNextSection = () => {
@@ -28,6 +30,15 @@ function Home() {
         }
     };
 
+    const scrollToSection = (sectionClass) => {
+        const section = document.querySelector(`.${sectionClass}`);
+        if (section) {
+            section.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
     const scrollToPortfolio = () => {
         window.location.href = '/portfolio';
     };
@@ -225,6 +236,30 @@ function Home() {
                                 <img src={emailIcon} alt="Email" />
                                 <span>Direct Contact</span>
                             </a>
+                        </div>
+                        
+                        <div className="explore-more-section">
+                            <h4 className="explore-title">Explore My Work</h4>
+                            <div className="explore-buttons">
+                                <button 
+                                    className="btn btn-secondary explore-btn"
+                                    onClick={() => window.location.href = '/about'}
+                                >
+                                    About Me
+                                </button>
+                                <button 
+                                    className="btn btn-secondary explore-btn"
+                                    onClick={() => window.location.href = '/portfolio'}
+                                >
+                                    View Projects
+                                </button>
+                                <button 
+                                    className="btn btn-secondary explore-btn"
+                                    onClick={() => window.location.href = '/contact'}
+                                >
+                                    Get In Touch
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

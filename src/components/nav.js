@@ -6,6 +6,10 @@ function Nav(props) {
 
     const btnOnClick = () => {
         props.setIsMenuActive(false);
+        // Scroll to top when navigating
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
     }
 
     return <>

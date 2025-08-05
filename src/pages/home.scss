@@ -234,53 +234,58 @@
                                 }
 
                                 &.react {
-                                    top: 0;
+                                    top: -25px;
                                     left: 50%;
-                                    transform: translateX(-50%);
+                                    transform: translateX(-50%) rotate(0deg);
                                     color: #61dafb;
                                 }
 
                                 &.nodejs {
-                                    top: 25%;
-                                    right: 0;
+                                    top: 18px;
+                                    right: -18px;
+                                    transform: rotate(0deg);
                                     color: #68a063;
                                 }
 
+                                &.typescript {
+                                    top: 50%;
+                                    right: -25px;
+                                    transform: translateY(-50%) rotate(0deg);
+                                    color: #3178c6;
+                                }
                                 &.database {
-                                    bottom: 25%;
-                                    right: 0;
+                                    bottom: 18px;
+                                    right: -18px;
+                                    transform: rotate(0deg);
                                     color: #336791;
                                 }
 
                                 &.cloud {
-                                    bottom: 0;
+                                    bottom: -25px;
                                     left: 50%;
-                                    transform: translateX(-50%);
+                                    transform: translateX(-50%) rotate(0deg);
                                     color: #ff9900;
                                 }
 
                                 &.api {
-                                    bottom: 25%;
-                                    left: 0;
+                                    bottom: 18px;
+                                    left: -18px;
+                                    transform: rotate(0deg);
                                     color: #10b981;
                                 }
 
                                 &.docker {
                                     top: 50%;
-                                    left: 0;
+                                    left: -25px;
+                                    transform: translateY(-50%) rotate(0deg);
                                     color: #2496ed;
                                 }
 
                                 &.git {
-                                    top: 25%;
-                                    left: 0;
+                                    top: 18px;
+                                    left: -18px;
+                                    transform: rotate(0deg);
                                     color: #f05032;
-                                }
-
-                                &.typescript {
-                                    top: 50%;
-                                    right: 0;
-                                    color: #3178c6;
                                 }
                             }
                         }
@@ -485,6 +490,7 @@
                 justify-content: center;
                 gap: 1.5rem;
                 flex-wrap: wrap;
+                margin-bottom: 3rem;
 
                 .social-link {
                     display: flex;
@@ -530,6 +536,37 @@
                         background: var(--primary-color);
                         color: white;
                         border-color: var(--primary-color);
+                    }
+                }
+            }
+
+            .explore-more-section {
+                border-top: 1px solid var(--border-color);
+                padding-top: 2rem;
+
+                .explore-title {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 1.5rem;
+                }
+
+                .explore-buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+
+                    .explore-btn {
+                        padding: 0.75rem 1.5rem;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                        min-width: 120px;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            transform: translateY(-1px);
+                        }
                     }
                 }
             }
@@ -607,6 +644,57 @@
                     .avatar-container {
                         width: 400px;
                         height: 400px;
+
+                        .avatar {
+                            .orbiting-container {
+                                width: 500px;
+                                height: 500px;
+                            }
+
+                            .tech-orbit {
+                                .tech-icon {
+                                    width: 60px;
+                                    height: 60px;
+                                    font-size: 1.75rem;
+
+                                    &.react {
+                                        top: -30px;
+                                    }
+
+                                    &.nodejs {
+                                        top: 22px;
+                                        right: -22px;
+                                    }
+
+                                    &.typescript {
+                                        right: -30px;
+                                    }
+
+                                    &.database {
+                                        bottom: 22px;
+                                        right: -22px;
+                                    }
+
+                                    &.cloud {
+                                        bottom: -30px;
+                                    }
+
+                                    &.api {
+                                        bottom: 22px;
+                                        left: -22px;
+                                    }
+
+                                    &.docker {
+                                        left: -30px;
+                                    }
+
+                                    &.git {
+                                        top: 22px;
+                                        left: -22px;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -636,6 +724,64 @@
                     .certifications-section {
                         .certifications-grid {
                             grid-template-columns: repeat(3, 1fr);
+                        }
+                    }
+                }
+
+                .hero-visual {
+                    .avatar-container {
+                        width: 450px;
+                        height: 450px;
+
+                        .avatar {
+                            .orbiting-container {
+                                width: 550px;
+                                height: 550px;
+                            }
+
+                            .tech-orbit {
+                                .tech-icon {
+                                    width: 70px;
+                                    height: 70px;
+                                    font-size: 2rem;
+
+                                    &.react {
+                                        top: -35px;
+                                    }
+
+                                    &.nodejs {
+                                        top: 25px;
+                                        right: -25px;
+                                    }
+
+                                    &.typescript {
+                                        right: -35px;
+                                    }
+
+                                    &.database {
+                                        bottom: 25px;
+                                        right: -25px;
+                                    }
+
+                                    &.cloud {
+                                        bottom: -35px;
+                                    }
+
+                                    &.api {
+                                        bottom: 25px;
+                                        left: -25px;
+                                    }
+
+                                    &.docker {
+                                        left: -35px;
+                                    }
+
+                                    &.git {
+                                        top: 25px;
+                                        left: -25px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -671,8 +817,8 @@
 }
 
 @keyframes counter-rotation {
-    0% { transform: translateX(-50%) rotate(0deg); }
-    100% { transform: translateX(-50%) rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
 }
 
 @keyframes orbit-ring-pulse {
