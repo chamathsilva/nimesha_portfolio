@@ -13,10 +13,18 @@ function Home() {
     }, []);
 
     const scrollToNextSection = () => {
-        // Scroll to the tech stack section which is the next section on the homepage
         const techStackSection = document.querySelector('.tech-stack-section');
         if (techStackSection) {
-            techStackSection.scrollIntoView({ behavior: 'smooth' });
+            techStackSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } else {
+            // Fallback: scroll down by viewport height
+            window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
         }
     };
 
