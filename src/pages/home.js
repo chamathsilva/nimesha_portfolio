@@ -116,7 +116,7 @@ function Home() {
                             <div className="avatar-container">
                                 <div className="avatar">
                                     <div className="avatar-image"></div>
-                                    <div className="avatar-ring"></div>
+                                    <div className="avatar-glow"></div>
                                     <div className="floating-elements">
                                         <div className="floating-element element-1" title="React & Frontend">⚛️</div>
                                         <div className="floating-element element-2" title="Node.js & Backend">🟢</div>
