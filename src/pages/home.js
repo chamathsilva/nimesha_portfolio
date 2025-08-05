@@ -13,15 +13,10 @@ function Home() {
     }, []);
 
     const scrollToNextSection = () => {
-        const aboutSection = document.querySelector('.about-page');
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            // Fallback: scroll to next section or navigate to about page
-            window.scrollTo({
-                top: window.innerHeight,
-                behavior: 'smooth'
-            });
+        // Scroll to the tech stack section which is the next section on the homepage
+        const techStackSection = document.querySelector('.tech-stack-section');
+        if (techStackSection) {
+            techStackSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
