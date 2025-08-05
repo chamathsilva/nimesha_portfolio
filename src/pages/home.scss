@@ -178,90 +178,124 @@
                             }
                         }
 
-                        .avatar-glow {
+                        .orbiting-container {
                             position: absolute;
-                            top: -8px;
-                            left: -8px;
-                            right: -8px;
-                            bottom: -8px;
-                            border-radius: 50%;
-                            background: conic-gradient(
-                                from 0deg,
-                                var(--primary-color),
-                                var(--accent-color),
-                                var(--primary-color)
-                            );
-                            opacity: 0.6;
-                            animation: rotate-glow 8s linear infinite;
+                            top: 50%;
+                            left: 50%;
+                            width: 400px;
+                            height: 400px;
+                            transform: translate(-50%, -50%);
                             z-index: 1;
+                            pointer-events: none;
                         }
 
-                        .avatar-glow::before {
-                            content: '';
+                        .orbit-ring {
                             position: absolute;
-                            top: 2px;
-                            left: 2px;
-                            right: 2px;
-                            bottom: 2px;
-                            background: var(--bg-primary);
+                            top: 50%;
+                            left: 50%;
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid rgba(37, 99, 235, 0.1);
                             border-radius: 50%;
-                            z-index: -1;
+                            transform: translate(-50%, -50%);
+                            animation: orbit-ring-pulse 4s ease-in-out infinite;
                         }
 
-                        .floating-elements {
+                        .tech-orbit {
                             position: absolute;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
+                            top: 50%;
+                            left: 50%;
+                            width: 100%;
+                            height: 100%;
+                            transform: translate(-50%, -50%);
+                            animation: orbit-rotation 20s linear infinite;
 
-                            .floating-element {
+                            .tech-icon {
                                 position: absolute;
-                                font-size: 2rem;
+                                width: 50px;
+                                height: 50px;
                                 background: var(--bg-primary);
+                                border: 2px solid var(--border-color);
                                 border-radius: 50%;
-                                width: 60px;
-                                height: 60px;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                box-shadow: 
-                                    var(--shadow-lg),
-                                    0 0 20px rgba(37, 99, 235, 0.1);
-                                border: 2px solid var(--border-color);
-                                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                                font-size: 1.5rem;
+                                box-shadow: var(--shadow-md);
+                                transition: all 0.3s ease;
+                                cursor: pointer;
+                                pointer-events: auto;
+                                animation: counter-rotation 20s linear infinite reverse;
 
                                 &:hover {
-                                    transform: translateY(-2px);
-                                    box-shadow: 
-                                        var(--shadow-xl),
-                                        0 0 25px rgba(37, 99, 235, 0.2);
+                                    transform: scale(1.1);
+                                    box-shadow: var(--shadow-lg);
+                                    border-color: var(--primary-color);
                                 }
 
-                                &.element-1 {
-                                    top: 10%;
-                                    right: 10%;
-                                    animation: gentle-float 4s ease-in-out infinite;
+                                &.react {
+                                    top: 0;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    color: #61dafb;
                                 }
 
-                                &.element-2 {
-                                    bottom: 20%;
-                                    left: 5%;
-                                    animation: gentle-float 4s ease-in-out infinite 1s;
+                                &.nodejs {
+                                    top: 25%;
+                                    right: 0;
+                                    color: #68a063;
                                 }
 
-                                &.element-3 {
+                                &.database {
+                                    bottom: 25%;
+                                    right: 0;
+                                    color: #336791;
+                                }
+
+                                &.cloud {
+                                    bottom: 0;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    color: #ff9900;
+                                }
+
+                                &.api {
+                                    bottom: 25%;
+                                    left: 0;
+                                    color: #10b981;
+                                }
+
+                                &.docker {
                                     top: 50%;
-                                    left: -10%;
-                                    animation: gentle-float 4s ease-in-out infinite 2s;
+                                    left: 0;
+                                    color: #2496ed;
                                 }
 
-                                &.element-4 {
-                                    bottom: 10%;
-                                    right: 5%;
-                                    animation: gentle-float 4s ease-in-out infinite 3s;
+                                &.git {
+                                    top: 25%;
+                                    left: 0;
+                                    color: #f05032;
+                                }
+
+                                &.typescript {
+                                    top: 50%;
+                                    right: 0;
+                                    color: #3178c6;
                                 }
                             }
+                        }
+
+                        .pulse-ring {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 320px;
+                            height: 320px;
+                            border: 2px solid rgba(37, 99, 235, 0.2);
+                            border-radius: 50%;
+                            transform: translate(-50%, -50%);
+                            animation: pulse-ring 3s ease-in-out infinite;
+                            z-index: 0;
                         }
                     }
                 }
@@ -631,26 +665,39 @@
     75% { transform: rotate(-10deg); }
 }
 
-@keyframes rotate-glow {
-    0% { 
-        transform: rotate(0deg);
-        opacity: 0.6;
+@keyframes orbit-rotation {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes counter-rotation {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes orbit-ring-pulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
     }
     50% { 
-        opacity: 0.8;
-    }
-    100% { 
-        transform: rotate(360deg);
         opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.02);
     }
 }
 
-@keyframes gentle-float {
-    0%, 100% { 
-        transform: translateY(0px);
+@keyframes pulse-ring {
+    0% { 
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
     }
     50% { 
-        transform: translateY(-8px);
+        opacity: 0.1;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% { 
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 

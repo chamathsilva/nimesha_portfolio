@@ -116,14 +116,19 @@ function Home() {
                             <div className="avatar-container">
                                 <div className="avatar">
                                     <div className="avatar-image"></div>
-                                    <div className="avatar-glow"></div>
-                                    <div className="floating-elements">
-                                        <div className="floating-element element-1" title="React & Frontend">⚛️</div>
-                                        <div className="floating-element element-2" title="Node.js & Backend">🟢</div>
-                                        <div className="floating-element element-3" title="Database Management">🗄️</div>
-                                        <div className="floating-element element-4" title="Cloud & DevOps">☁️</div>
-                                        <div className="floating-element element-5" title="API Development">🔗</div>
-                                        <div className="floating-element element-6" title="Full Stack Solutions">🚀</div>
+                                    <div className="orbiting-container">
+                                        <div className="orbit-ring"></div>
+                                        <div className="pulse-ring"></div>
+                                        <div className="tech-orbit">
+                                            <div className="tech-icon react" title="React & Frontend">⚛️</div>
+                                            <div className="tech-icon nodejs" title="Node.js & Backend">🟢</div>
+                                            <div className="tech-icon database" title="Database Management">🗄️</div>
+                                            <div className="tech-icon cloud" title="AWS & Cloud">☁️</div>
+                                            <div className="tech-icon api" title="REST APIs">🔗</div>
+                                            <div className="tech-icon docker" title="Docker & DevOps">🐳</div>
+                                            <div className="tech-icon git" title="Git & Version Control">📝</div>
+                                            <div className="tech-icon typescript" title="TypeScript">📘</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
