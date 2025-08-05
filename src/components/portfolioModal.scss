@@ -1,9 +1,30 @@
 .portfolio-modal {
-    color: #130f49;
+    color: var(--text-primary);
     font-family: Montserrat, sans-serif;
 
     .ant-modal-content {
         padding-top: 45px;
+        background: var(--glass-bg-strong);
+        backdrop-filter: var(--glass-blur-strong);
+        -webkit-backdrop-filter: var(--glass-blur-strong);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-glass);
+        box-shadow: var(--glass-shadow-strong);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                transparent 100%);
+        }
     }
 
     .modal-wrap {
@@ -12,20 +33,42 @@
         }
 
         .modal-content {
-            background-color: rgb(245, 245, 245);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             padding: 0 50px 50px 50px;
-            
+            border-radius: var(--radius-glass);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(255, 255, 255, 0.3) 50%, 
+                    transparent 100%);
+            }
 
             .description {
                 font-size: 14px;
                 padding-bottom: 10px;
+                color: var(--text-secondary);
             }
 
             .responsibility {
                 font-weight: 500;
+                color: var(--text-primary);
 
                 span {
                     font-weight: 400;
+                    color: var(--text-secondary);
                 }
             }
 
@@ -34,26 +77,36 @@
                 font-weight: 700;
                 margin-bottom: 10px;
                 padding-top: 20px;
+                color: var(--text-primary);
             }
 
             .technology {
                 font-size: 16px;
                 font-weight: 600;
                 padding-bottom: 6px;
+                color: var(--text-primary);
 
                 span {
                     font-weight: 700;
+                    color: var(--text-secondary);
                 }
             }
 
             .url {
                 font-weight: 500;
                 padding-top: 10px;
+                color: var(--text-primary);
 
                 .link {
-                    color: #286fd6;
+                    color: var(--primary-color);
                     cursor: pointer;
                     text-decoration: underline;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        color: var(--accent-color);
+                        text-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+                    }
                 }
             }
 
@@ -62,6 +115,14 @@
 
                 img {
                     padding-bottom: 25px;
+                    border-radius: var(--radius-glass);
+                    box-shadow: var(--glass-shadow);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.02);
+                        box-shadow: var(--glass-shadow-strong);
+                    }
                 }
             }
         }
@@ -78,6 +139,11 @@
             .modal-wrap {
                 .img-wrap {
                     padding: 50px;
+
+                    img {
+                        border-radius: var(--radius-glass);
+                        box-shadow: var(--glass-shadow);
+                    }
                 }
             }
             .website-images {
@@ -87,6 +153,14 @@
                 img {
                     margin: 10px;
                     width: 48%;
+                    border-radius: var(--radius-glass);
+                    box-shadow: var(--glass-shadow);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.02);
+                        box-shadow: var(--glass-shadow-strong);
+                    }
                 }
             }
         }
@@ -97,14 +171,15 @@
 [data-theme="dark"] {
     .portfolio-modal {
         .ant-modal-content {
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border-color);
+            background: var(--glass-bg-strong);
+            border: 1px solid var(--glass-border);
         }
 
         .modal-wrap {
             .modal-content {
-                background-color: var(--bg-secondary);
+                background: var(--glass-bg);
                 color: var(--text-primary);
+                border-color: var(--glass-border);
 
                 .title {
                     color: var(--text-primary);
@@ -135,6 +210,10 @@
 
                     .link {
                         color: var(--primary-color);
+
+                        &:hover {
+                            color: var(--accent-color);
+                        }
                     }
                 }
             }
