@@ -55,7 +55,7 @@ function Header() {
                 <div className="desktop-nav">
                     <div className="logo">
                         <span className="logo-text">Nimesha Kahingala</span>
-                        <span className="logo-subtitle">Frontend Developer</span>
+                        <span className="logo-subtitle">Full Stack Developer</span>
                     </div>
                     <div className="nav-actions">
                         <button 

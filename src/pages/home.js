@@ -31,11 +31,11 @@ function Home() {
                             </div>
                             <h1 className="hero-title">
                                 <span className="name">Nimesha Kahingala</span>
-                                <span className="title-accent">Frontend Developer</span>
+                                <span className="title-accent">Full Stack Developer</span>
                             </h1>
                             <p className="hero-description">
-                                I craft compelling, user-first digital experiences with modern web technologies. 
-                                Specializing in React, JavaScript, and responsive design to bring your ideas to life.
+                                I build end-to-end web applications with modern technologies. 
+                                Specializing in React, Node.js, and cloud solutions to bring your ideas to life.
                             </p>
                             <div className="hero-stats">
                                 <div className="stat">
