@@ -232,6 +232,159 @@
                 }
             }
         }
+
+        .certifications-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-color);
+
+            .certifications-title {
+                font-size: 1.25rem;
+                font-weight: 700;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                color: var(--text-primary);
+            }
+
+            .certifications-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+
+                .certification-badge {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                    background: var(--bg-primary);
+                    border-radius: var(--radius-lg);
+                    border: 1px solid var(--border-color);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: var(--shadow-md);
+                    }
+
+                    .cert-icon {
+                        font-size: 1.5rem;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: var(--primary-color);
+                        border-radius: 50%;
+                        color: white;
+                        flex-shrink: 0;
+                    }
+
+                    .cert-content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+
+                        .cert-name {
+                            font-weight: 600;
+                            color: var(--text-primary);
+                            font-size: 0.95rem;
+                        }
+
+                        .cert-detail {
+                            font-size: 0.85rem;
+                            color: var(--text-secondary);
+                        }
+                    }
+                }
+            }
+        }
+
+        .floating-elements {
+            .floating-element {
+                &.element-5 {
+                    top: 30%;
+                    right: -5%;
+                    animation: float 3s ease-in-out infinite 2s;
+                }
+
+                &.element-6 {
+                    bottom: 40%;
+                    right: 15%;
+                    animation: float 3s ease-in-out infinite 2.5s;
+                }
+            }
+        }
+    }
+
+    .tech-stack-section {
+        padding: 4rem 0;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+
+        .tech-content {
+            text-align: center;
+
+            .tech-title {
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 3rem;
+            }
+
+            .tech-categories {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+
+                .tech-category {
+                    background: var(--bg-primary);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    border: 1px solid var(--border-color);
+                    box-shadow: var(--shadow-md);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: var(--shadow-lg);
+                    }
+
+                    .category-name {
+                        font-size: 1.25rem;
+                        font-weight: 700;
+                        color: var(--primary-color);
+                        margin-bottom: 1rem;
+                    }
+
+                    .tech-items {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.75rem;
+                        justify-content: center;
+
+                        .tech-item {
+                            background: var(--bg-secondary);
+                            color: var(--text-primary);
+                            padding: 0.5rem 1rem;
+                            border-radius: var(--radius-md);
+                            font-size: 0.875rem;
+                            font-weight: 500;
+                            border: 1px solid var(--border-color);
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                background: var(--primary-color);
+                                color: white;
+                                transform: translateY(-1px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .social-section {
@@ -247,6 +400,15 @@
                 font-weight: 700;
                 color: var(--text-primary);
                 margin-bottom: 2rem;
+            }
+
+            .social-description {
+                font-size: 1rem;
+                color: var(--text-secondary);
+                margin-bottom: 2rem;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .social-links {
@@ -364,6 +526,12 @@
                     .hero-actions {
                         justify-content: flex-start;
                     }
+
+                    .certifications-section {
+                        .certifications-grid {
+                            grid-template-columns: 1fr;
+                        }
+                    }
                 }
 
                 .hero-visual {
@@ -375,9 +543,41 @@
             }
         }
 
+        .tech-stack-section {
+            .tech-content {
+                .tech-categories {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+
         .social-section {
             .social-links {
                 gap: 2rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .home-page {
+        .hero-section {
+            .hero-content {
+                .hero-text {
+                    .certifications-section {
+                        .certifications-grid {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                    }
+                }
+            }
+        }
+
+        .tech-stack-section {
+            .tech-content {
+                .tech-categories {
+                    grid-template-columns: repeat(4, 1fr);
+                }
             }
         }
     }
@@ -426,6 +626,39 @@
                     .hero-stats {
                         background: rgba(30, 41, 59, 0.5);
                         border-color: var(--border-color);
+                    }
+
+                    .certifications-section {
+                        background: rgba(30, 41, 59, 0.7);
+                        border-color: var(--border-color);
+
+                        .certifications-grid {
+                            .certification-badge {
+                                background: var(--bg-primary);
+                                border-color: var(--border-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .tech-stack-section {
+            background: var(--bg-secondary);
+            border-top-color: var(--border-color);
+
+            .tech-content {
+                .tech-categories {
+                    .tech-category {
+                        background: var(--bg-primary);
+                        border-color: var(--border-color);
+
+                        .tech-items {
+                            .tech-item {
+                                background: var(--bg-secondary);
+                                border-color: var(--border-color);
+                            }
+                        }
                     }
                 }
             }
