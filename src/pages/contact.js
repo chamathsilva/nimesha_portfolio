@@ -145,7 +145,7 @@ function Contact() {
                                     Tell me about your <strong>web development project</strong> and let's discuss how we can work together to create amazing <strong>digital solutions</strong>.
                                 </p>
 
-                                <form className="contact-form" onSubmit={handleSubmit} role="form" aria-label="Project inquiry form">
+                                <form className="contact-form" onSubmit={handleSubmit} aria-label="Project inquiry form">
                                     <div className="form-group">
                                         <label htmlFor="name">Full Name</label>
                                         <input
